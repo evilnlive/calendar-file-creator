@@ -1,9 +1,9 @@
-﻿using System;
-
-namespace CalendarFileGenerator.Web.Models
+﻿namespace CalendarFileGenerator.Web.Models
 {
     public class ScheduleDay
     {
-        public DateTime Time { get; set; }
+        public string From { get; set; }
+
+        public string Until { get; set; }
     }
 }

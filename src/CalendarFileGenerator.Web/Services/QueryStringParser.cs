@@ -1,6 +1,5 @@
 ﻿using CalendarFileGenerator.Web.Models;
 using CalendarFileGenerator.Web.Services.Interfaces;
-using System;
 
 namespace CalendarFileGenerator.Web.Services
 {
