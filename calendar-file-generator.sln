@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarFileGenerator.Web", "src\CalendarFileGenerator.Web\CalendarFileGenerator.Web.csproj", "{47D8AF1A-DFF2-4021-9ED7-AE04D7364799}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{CE51C8CF-B8D6-448C-99C2-BFF12FAF1193}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarFileGenerator.Web.Test", "test\CalendarFileGenerator.Web.Test\CalendarFileGenerator.Web.Test.csproj", "{46F2174A-34EA-4241-851E-BBCC7C526CE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47D8AF1A-DFF2-4021-9ED7-AE04D7364799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47D8AF1A-DFF2-4021-9ED7-AE04D7364799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47D8AF1A-DFF2-4021-9ED7-AE04D7364799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47D8AF1A-DFF2-4021-9ED7-AE04D7364799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46F2174A-34EA-4241-851E-BBCC7C526CE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46F2174A-34EA-4241-851E-BBCC7C526CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46F2174A-34EA-4241-851E-BBCC7C526CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46F2174A-34EA-4241-851E-BBCC7C526CE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{46F2174A-34EA-4241-851E-BBCC7C526CE9} = {CE51C8CF-B8D6-448C-99C2-BFF12FAF1193}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9266017-F70A-4AB4-AE1B-F44D864E4662}
+	EndGlobalSection
+EndGlobal
