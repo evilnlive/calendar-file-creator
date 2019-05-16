@@ -28,16 +28,13 @@ namespace CalendarFileGenerator.Web.Pages
             {
                 StartDate = DateTime.Today,
                 EndDate = DateTime.Today.AddDays(7),
-                Weeks = new List<ScheduleWeek> {
-                    new ScheduleWeek {
-                        Days = new List<ScheduleDay> {
-                            new ScheduleDay{ From = "8:00", Until = "17:00" },
-                            new ScheduleDay{ From = "8:00", Until = "17:00" },
-                            new ScheduleDay{ From = "8:00", Until = "17:00" },
-                            new ScheduleDay{ From = "8:00", Until = "17:00" },
-                            new ScheduleDay{ From = "8:00", Until = "17:00" }
-                    } } }
+                Weeks = new List<ScheduleWeek> { CreateScheduleWeek() }
             };
+        }
+
+        public void OnPostAddWeek()
+        {
+            Schedule.Weeks.Add(CreateScheduleWeek());
         }
 
         public IActionResult OnPost()
@@ -66,6 +63,20 @@ namespace CalendarFileGenerator.Web.Pages
             var ics = _icalService.SerializeToIcal(new List<CalendarEvent> { event1, event2 });
 
             return new ContentResult() { Content = ics, ContentType = "text/calendar" };
+        }
+
+        private static ScheduleWeek CreateScheduleWeek()
+        {
+            return new ScheduleWeek
+            {
+                Days = new List<ScheduleDay> {
+                            new ScheduleDay { From = "8:00", Until = "17:00" },
+                            new ScheduleDay { From = "8:00", Until = "17:00" },
+                            new ScheduleDay { From = "8:00", Until = "17:00" },
+                            new ScheduleDay { From = "8:00", Until = "17:00" },
+                            new ScheduleDay { From = "8:00", Until = "17:00" }
+                }
+            };
         }
     }
 }

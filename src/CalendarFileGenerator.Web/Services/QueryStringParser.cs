@@ -7,12 +7,7 @@ namespace CalendarFileGenerator.Web.Services
     {
         public Schedule GetSchedule(string queryString)
         {
-            if (string.IsNullOrEmpty(queryString))
-            {
-                return null;
-            }
-
-            return new Schedule();
+            return null;
         }
     }
 }

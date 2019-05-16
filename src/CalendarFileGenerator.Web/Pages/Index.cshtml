@@ -22,27 +22,36 @@
 
         <table class="table">
             @{
-                var weekIndex = 0;
-                var dayIndex = 0;
+            var weekIndex = 0;
             }
             @foreach (var week in Model.Schedule.Weeks)
             {
-                <tr>
-                    <td>
-                        <input type="hidden" name="Schedule.Weeks[@weekIndex].Index" value="@weekIndex" />
-                        @weekIndex
-                    </td>
-                    @foreach (var day in week.Days)
-                    {
-                        <td><input name="Schedule.Weeks[@weekIndex].Days[@dayIndex].Start" value="@day.From" /></td>
-                        <td><input name="Schedule.Weeks[@weekIndex].Days[@dayIndex].Until" value="@day.Until" /></td>
+            var dayIndex = 0;
 
-                        dayIndex++;
-                    }
-                </tr>
+            <tr>
+                <td>
+                    @(weekIndex + 1)
+                </td>
+                @foreach (var day in week.Days)
+                {
+                <td>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input asp-for="Schedule.Weeks[weekIndex].Days[dayIndex].From" />
+                            <input asp-for="Schedule.Weeks[weekIndex].Days[dayIndex].Until" />
+                        </div>
+                    </div>
+                </td>
 
-                weekIndex++;
+                dayIndex++;
+                }
+            </tr>
+
+            weekIndex++;
             }
+            <tr>
+                <td><button asp-page-handler="AddWeek" class="btn btn-link">Lägg till vecka</button></td>
+            </tr>
         </table>
 
         <div class="form-group">
