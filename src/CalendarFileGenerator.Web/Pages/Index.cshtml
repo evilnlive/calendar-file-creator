@@ -7,6 +7,13 @@
 <div class="row">
     <form method="post">
         <div class="form-group">
+            <label asp-for="Schedule.Title" class="col-sm-2 control-label">Titel</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="Schedule.Title" />
+            </div>
+        </div>
+        
+        <div class="form-group">
             <label asp-for="Schedule.StartDate" class="col-sm-2 control-label">Startdatum</label>
             <div class="col-sm-10">
                 <input type="date" asp-for="Schedule.StartDate" />
@@ -46,8 +53,8 @@
                     {
                         <td>
                             <div class="form-group form-group-sm">
-                                <input asp-for="Schedule.Weeks[weekIndex].Days[dayIndex].From" class="input-time" />
-                                <input asp-for="Schedule.Weeks[weekIndex].Days[dayIndex].Until" class="input-time" />
+                                <input type="time" asp-for="Schedule.Weeks[weekIndex].Days[dayIndex].From" class="input-time" />
+                                <input type="time" asp-for="Schedule.Weeks[weekIndex].Days[dayIndex].Until" class="input-time" />
                             </div>
                         </td>
 

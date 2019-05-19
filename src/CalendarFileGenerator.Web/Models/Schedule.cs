@@ -9,6 +9,8 @@ namespace CalendarFileGenerator.Web.Models
 
         public DateTime EndDate { get; set; }
         
+        public string Title { get; set; }
+        
         public IList<ScheduleWeek> Weeks { get; set; }
     }
 }

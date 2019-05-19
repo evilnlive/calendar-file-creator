@@ -54,11 +54,16 @@ namespace CalendarFileGenerator.Web.Services
                 {
                     From = currentDate.AddHours(fromTime.Hour).AddMinutes(fromTime.Minute),
                     Until = currentDate.AddHours(untilTime.Hour).AddMinutes(untilTime.Minute),
-                    Title = $"From {from} to {until}"
+                    Title = ParseTitle(schedule.Title, from, until)
                 });
             }
 
             return calendarEvents;
+        }
+
+        private string ParseTitle(string title, string from, string until)
+        {
+            return title.Replace("{start}", from).Replace("{end}", until);
         }
 
         private ScheduleDay GetScheduleDay(int index, Schedule schedule)

@@ -25,6 +25,7 @@ namespace CalendarFileGenerator.Web.Pages
         {
             Schedule = new Schedule
             {
+                Title = "Det händer mellan {start} och {end}",
                 StartDate = DateTime.Today,
                 EndDate = DateTime.Today.AddDays(7),
                 Weeks = new List<ScheduleWeek> { CreateScheduleWeek() }
@@ -50,11 +51,11 @@ namespace CalendarFileGenerator.Web.Pages
             return new ScheduleWeek
             {
                 Days = new List<ScheduleDay> {
-                            new ScheduleDay { From = "8:00", Until = "17:00" },
-                            new ScheduleDay { From = "8:00", Until = "17:00" },
-                            new ScheduleDay { From = "8:00", Until = "17:00" },
-                            new ScheduleDay { From = "8:00", Until = "17:00" },
-                            new ScheduleDay { From = "8:00", Until = "17:00" },
+                            new ScheduleDay { From = "08:00", Until = "17:00" },
+                            new ScheduleDay { From = "08:00", Until = "17:00" },
+                            new ScheduleDay { From = "08:00", Until = "17:00" },
+                            new ScheduleDay { From = "08:00", Until = "17:00" },
+                            new ScheduleDay { From = "08:00", Until = "17:00" },
                             new ScheduleDay(),
                             new ScheduleDay()
                 }
