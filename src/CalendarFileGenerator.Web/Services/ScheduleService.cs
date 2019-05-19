@@ -32,6 +32,8 @@ namespace CalendarFileGenerator.Web.Services
 
             var stopIndex = startIndex + numberOfDays;
 
+            var firstMonday = startDate.AddDays(-startIndex);
+
             for (int i = startIndex; i < stopIndex; i++)
             {
                 var scheduleDay = GetScheduleDay(i, schedule);
@@ -44,10 +46,14 @@ namespace CalendarFileGenerator.Web.Services
                     continue;
                 }
 
+                var currentDate = firstMonday.AddDays(i);
+                var fromTime = DateTime.Parse(from);
+                var untilTime = DateTime.Parse(until);
+
                 calendarEvents.Add(new CalendarEvent
                 {
-                    From = DateTime.Parse(from),
-                    Until = DateTime.Parse(until),
+                    From = currentDate.AddHours(fromTime.Hour).AddMinutes(fromTime.Minute),
+                    Until = currentDate.AddHours(untilTime.Hour).AddMinutes(untilTime.Minute),
                     Title = $"From {from} to {until}"
                 });
             }
