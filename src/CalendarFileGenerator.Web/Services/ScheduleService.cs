@@ -21,9 +21,18 @@ namespace CalendarFileGenerator.Web.Services
             var calendarEvents = new List<CalendarEvent>();
             var startDate = schedule.StartDate;
             var endDate = schedule.EndDate;
-            var diff = (endDate - startDate).Days;
+            var numberOfDays = (endDate - startDate).Days + 1;
 
-            for (int i = 0; i < diff; i++)
+            var startIndex = (int)startDate.DayOfWeek - 1;
+
+            if(startIndex < 0 )
+            {
+                startIndex = 6;
+            }
+
+            var stopIndex = startIndex + numberOfDays;
+
+            for (int i = startIndex; i < stopIndex; i++)
             {
                 var scheduleDay = GetScheduleDay(i, schedule);
 

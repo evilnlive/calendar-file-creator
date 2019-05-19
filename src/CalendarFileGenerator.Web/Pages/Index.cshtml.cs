@@ -36,7 +36,7 @@ namespace CalendarFileGenerator.Web.Pages
             Schedule.Weeks.Add(CreateScheduleWeek());
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPostCreateFile()
         {
             var calendarEvents = _scheduleService.ParseSchedule(Schedule);
 
