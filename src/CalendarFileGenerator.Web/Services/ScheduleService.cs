@@ -25,7 +25,7 @@ namespace CalendarFileGenerator.Web.Services
 
             var startIndex = (int)startDate.DayOfWeek - 1;
 
-            if(startIndex < 0 )
+            if (startIndex < 0)
             {
                 startIndex = 6;
             }
@@ -47,18 +47,27 @@ namespace CalendarFileGenerator.Web.Services
                 }
 
                 var currentDate = firstMonday.AddDays(i);
+
                 var fromTime = DateTime.Parse(from);
                 var untilTime = DateTime.Parse(until);
 
                 calendarEvents.Add(new CalendarEvent
                 {
-                    From = currentDate.AddHours(fromTime.Hour).AddMinutes(fromTime.Minute),
-                    Until = currentDate.AddHours(untilTime.Hour).AddMinutes(untilTime.Minute),
+                    From = ToLocal(currentDate.AddHours(fromTime.Hour).AddMinutes(fromTime.Minute)),
+                    Until = ToLocal(currentDate.AddHours(untilTime.Hour).AddMinutes(untilTime.Minute)),
                     Title = ParseTitle(schedule.Title, from, until)
                 });
             }
 
             return calendarEvents;
+        }
+
+        private static DateTime ToLocal(DateTime dateTime)
+        {
+            var timeZone = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
+
+            var dateTimeUnspec = DateTime.SpecifyKind(dateTime, DateTimeKind.Unspecified);
+            return TimeZoneInfo.ConvertTimeToUtc(dateTimeUnspec, timeZone);
         }
 
         private string ParseTitle(string title, string from, string until)
